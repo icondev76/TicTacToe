@@ -42,9 +42,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 playerID=0;
             }
         }
-
-            Toast.makeText(this, getWinner(), Toast.LENGTH_SHORT).show();
-
+        String result;
+            if (getWinner()=="X") {
+                result = "Player X is Won";
+            }else{
+                result = "Player O is Won";
+            }
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public String getWinner(){
 
         String[][] string= new String[3][3];
+        String result=null;
 
         for(int i=0; i<3;i++){
             for(int j=0; j<3;j++){
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(string[i][0].equals(string[i][1])
                 && string[i][0].equals(string[i][2])
                 && !string[i][0].equals("")){
-                return "Player "+string[0][i]+" is Won";
+                result=string[i][0];
             }
         }
         //check vertical buttons for winner
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(string[0][i].equals(string[1][i])
                     && string[0][i].equals(string[2][i])
                     && !string[0][i].equals("")){
-                return "Player "+string[0][i]+" is Won";
+                    result=string[0][i];
             }
         }
         //check cross buttons for winner
@@ -80,10 +85,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(string[0][0].equals(string[1][1])
                     && string[0][0].equals(string[2][2])
                     && !string[0][0].equals("")){
-                return "Player "+string[0][0]+" is Won";
+                    result=string[0][0];
             }
 
-        return "Player "+"O"+ "is Won";
+            if(string[0][2].equals(string[1][1])
+                    && string[0][2].equals(string[2][0])
+                    && !string[0][2].equals("")){
+                    result=string[0][2];
+            }
+
+        return result;
     }
 
 }
