@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(getWinner()){
 
-                Toast.makeText(this,"Player "+((Button)v).getText()+" is Won", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Player "+((Button)v).getText()+" is Won", Toast.LENGTH_LONG).show();
                 reset();
         }else if(draw()){
-            Toast.makeText(this,"Game is Draw", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Game is Draw", Toast.LENGTH_LONG).show();
             reset();
         }
     }
