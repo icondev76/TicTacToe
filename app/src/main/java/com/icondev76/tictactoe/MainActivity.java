@@ -6,9 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //declare button variables
+
     private Button[][] button= new Button[3][3];
     private int playerID=0;
     private String[][] string= new String[3][3];
@@ -38,11 +41,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         if(getWinner()){
-
-                Toast.makeText(this,"Player "+((Button)v).getText()+" is Won", Toast.LENGTH_LONG).show();
+            StyleableToast.makeText(this,"Player "+((Button)v).getText()+" is Won", R.style.mytoast).show();
+                //Toast.makeText(this,"Player "+((Button)v).getText()+" is Won", Toast.LENGTH_SHORT).show();
                 reset();
         }else if(draw()){
-            Toast.makeText(this,"Game is Draw", Toast.LENGTH_LONG).show();
+            StyleableToast.makeText(this,"Game is Draw", R.style.mytoast).show();
+            //Toast.makeText(this,"Game is Draw", Toast.LENGTH_SHORT).show();
             reset();
         }
     }
